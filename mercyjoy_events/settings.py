@@ -118,6 +118,16 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+# This is the ABSOLUTE PATH where `collectstatic` will dump all files
+# We're telling it to create a new folder named 'staticfiles' in your project's root
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# This is for your *source* static files, if you have a project-wide /static folder
+# You should also have this if you have one.
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
