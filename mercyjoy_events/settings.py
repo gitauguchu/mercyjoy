@@ -26,7 +26,10 @@ SECRET_KEY = 'django-insecure-kix(#so9pcmuy!i=#^n2r1#&e4c&e0d+b!mm$*prs-yga9v!=^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'karibukenya.co.ke',
+    'www.karibukenya.co.ke'
+]
 
 
 # Application definition
