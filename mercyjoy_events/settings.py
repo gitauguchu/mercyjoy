@@ -24,11 +24,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-kix(#so9pcmuy!i=#^n2r1#&e4c&e0d+b!mm$*prs-yga9v!=^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
-    'karibukenya.co.ke',
-    'www.karibukenya.co.ke'
+    '.vercel.app',
+    '127.0.0.1',
+    '.now.sh'
 ]
 
 
@@ -80,8 +81,12 @@ WSGI_APPLICATION = 'mercyjoy_events.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('LIFECARE_DATABASE_NAME'),
+        'USER': os.getenv('LIFECARE_DATABASE_USER'), 
+        'PASSWORD': os.getenv('LIFECARE_DATABASE_PASSWORD'), 
+        'HOST': os.getenv('LIFECARE_DATABASE_HOST'), 
+        'PORT': os.getenv('LIFECARE_DATABASE_PORT'), 
     }
 }
 
@@ -124,7 +129,7 @@ STATIC_URL = 'static/'
 
 # This is the ABSOLUTE PATH where `collectstatic` will dump all files
 # We're telling it to create a new folder named 'staticfiles' in your project's root
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 # This is for your *source* static files, if you have a project-wide /static folder
 # You should also have this if you have one.
